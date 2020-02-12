@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.okta.example</groupId>
+    <artifactId>okta-jpaseto-example</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <dependencies>
+        <!-- compile time api -->
+        <dependency>
+            <groupId>dev.paseto</groupId>
+            <artifactId>jpaseto-api</artifactId>
+            <version>0.2.0</version>
+        </dependency>
+        <!-- general implementation -->
+        <dependency>
+            <groupId>dev.paseto</groupId>
+            <artifactId>jpaseto-impl</artifactId>
+            <version>0.2.0</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- JSON parsing impl -->
+        <dependency>
+            <groupId>dev.paseto</groupId>
+            <artifactId>jpaseto-jackson</artifactId>
+            <version>0.2.0</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- crypto impl -->
+        <dependency>
+            <groupId>dev.paseto</groupId>
+            <artifactId>jpaseto-bouncy-castle</artifactId>
+            <version>0.2.0</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>dev.paseto</groupId>
+            <artifactId>jpaseto-sodium</artifactId>
+            <version>0.2.0</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <!-- allow for simple execution of this project by running ./mvnw -->
+        <defaultGoal>compile exec:java</defaultGoal>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <configuration>
+                    <mainClass>com.okta.example.JPasetoExample</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
